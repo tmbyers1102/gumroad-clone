@@ -41,13 +41,13 @@
               <a href="{% url 'profile' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
                 Your Profile
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">
-                  {{ request.user.userlibrary.products.count }}
+                  #
                 </span>
               </a>
               <a href="{% url 'user-products' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
                 Products
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                  # {{ request.product.name.count }}
+                  #
                 </span>
               </a>
               <a href="{% url 'account_logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">
