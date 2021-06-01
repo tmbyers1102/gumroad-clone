@@ -5,12 +5,37 @@ from django.urls import include, path
 from django.views import defaults as default_views
 from django.views.generic import TemplateView
 from rest_framework.authtoken.views import obtain_auth_token
+<<<<<<< HEAD
 
 urlpatterns = [
     path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
     path(
         "about/", TemplateView.as_view(template_name="pages/about.html"), name="about"
     ),
+=======
+from django.views.decorators.csrf import csrf_exempt
+from djgumroad.products.views import (
+    ProductListView, 
+    UserProductListView,
+    ProductCreateView,
+    CreateCheckoutSessionView,
+    SuccessView,
+    stripe_webhook,
+)
+from djgumroad.users.views import UserProfileView, StripeAccountLinkView
+
+urlpatterns = [
+    path("", TemplateView.as_view(template_name="pages/home.html"), name="home"),
+    path("discover/", ProductListView.as_view(), name='discover'),
+    path('products/', UserProductListView.as_view(), name='user-products'),
+    path('products/create/', ProductCreateView.as_view(), name='product-create'),
+    path('profile/', UserProfileView.as_view(), name="profile"),
+    path('stripe/auth/', StripeAccountLinkView.as_view(), name="stripe-account-link"),
+    path("p/", include('djgumroad.products.urls', namespace='products')),
+    path("create-checkout-session/<slug>/", CreateCheckoutSessionView.as_view(), name="create-checkout-session"),
+    path('success/', SuccessView.as_view(), name='success'),
+    path("webhooks/stripe/", stripe_webhook, name='stripe-webhook'),
+>>>>>>> with-stripe-connect
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
@@ -51,4 +76,8 @@ if settings.DEBUG:
     if "debug_toolbar" in settings.INSTALLED_APPS:
         import debug_toolbar
 
+<<<<<<< HEAD
         urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
+=======
+        urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
+>>>>>>> with-stripe-connect

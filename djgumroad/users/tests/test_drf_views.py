@@ -28,6 +28,10 @@ class TestUserViewSet:
 
         assert response.data == {
             "username": user.username,
+<<<<<<< HEAD
+=======
+            "email": user.email,
+>>>>>>> with-stripe-connect
             "name": user.name,
             "url": f"http://testserver/api/users/{user.username}/",
         }

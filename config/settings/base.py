@@ -42,7 +42,11 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
+<<<<<<< HEAD
     "default": env.db("DATABASE_URL", default="postgres:///djgumroad"),
+=======
+    "default": env.db("DATABASE_URL", default="postgres:///djgumroad")
+>>>>>>> with-stripe-connect
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
@@ -74,10 +78,20 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
+<<<<<<< HEAD
+=======
+    "tailwind",
+    "crispy_tailwind",
+>>>>>>> with-stripe-connect
 ]
 
 LOCAL_APPS = [
     "djgumroad.users.apps.UsersConfig",
+<<<<<<< HEAD
+=======
+    "djgumroad.theme.apps.ThemeConfig",
+    "djgumroad.products.apps.ProductsConfig",
+>>>>>>> with-stripe-connect
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -196,7 +210,12 @@ TEMPLATES = [
 FORM_RENDERER = "django.forms.renderers.TemplatesSetting"
 
 # http://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs
+<<<<<<< HEAD
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+=======
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
+>>>>>>> with-stripe-connect
 
 # FIXTURES
 # ------------------------------------------------------------------------------
@@ -218,8 +237,12 @@ X_FRAME_OPTIONS = "DENY"
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = env(
+<<<<<<< HEAD
     "DJANGO_EMAIL_BACKEND",
     default="django.core.mail.backends.smtp.EmailBackend",
+=======
+    "DJANGO_EMAIL_BACKEND", default="django.core.mail.backends.smtp.EmailBackend"
+>>>>>>> with-stripe-connect
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-timeout
 EMAIL_TIMEOUT = 5
@@ -229,7 +252,11 @@ EMAIL_TIMEOUT = 5
 # Django Admin URL.
 ADMIN_URL = "admin/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
+<<<<<<< HEAD
 ADMINS = [("""Tom Byers""", "tmbyers1102@gmail.com")]
+=======
+ADMINS = [("""Matthew Freire""", "matt@justdjango.com")]
+>>>>>>> with-stripe-connect
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 
@@ -285,5 +312,21 @@ REST_FRAMEWORK = {
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
 CORS_URLS_REGEX = r"^/api/.*$"
+<<<<<<< HEAD
 # Your stuff...
 # ------------------------------------------------------------------------------
+=======
+
+# django-tailwind - https://github.com/timonweb/django-tailwind#quick-start
+TAILWIND_APP_NAME = 'theme'
+
+# Stripe
+STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
+STRIPE_WEBHOOK_SECRET = env("STRIPE_WEBHOOK_SECRET")
+
+# you can set this to true to solve the "WARNING Forbidden (CSRF cookie not set.)" but you'll lose CSRF on the whole damn website!
+# maybe try and add this setting with an if statement to the exact webhook address to keep csrf on rest of site?
+# UPDATE: actually, this seems to only be removing the csrf error when I resend the webhook request from stripe's website on normal purchase still there so useless 
+# CSRF_COOKIE_SECURE = True
+>>>>>>> with-stripe-connect

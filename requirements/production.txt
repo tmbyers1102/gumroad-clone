@@ -2,9 +2,17 @@
 
 -r base.txt
 
+<<<<<<< HEAD
 gunicorn==20.1.0  # https://github.com/benoitc/gunicorn
+=======
+gunicorn==20.0.4  # https://github.com/benoitc/gunicorn
+>>>>>>> with-stripe-connect
 psycopg2==2.8.6  # https://github.com/psycopg/psycopg2
 
 # Django
 # ------------------------------------------------------------------------------
+<<<<<<< HEAD
 django-anymail[mailgun]==8.2  # https://github.com/anymail/django-anymail
+=======
+django-anymail[mailgun]==8.1  # https://github.com/anymail/django-anymail
+>>>>>>> with-stripe-connect

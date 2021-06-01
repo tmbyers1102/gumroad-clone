@@ -10,11 +10,28 @@ from .base import env
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env(
     "DJANGO_SECRET_KEY",
+<<<<<<< HEAD
     default="LopVr3ZGl3kmL10doripFyZZqp4xmDxaRRZEEz3udKZYiR38HiEKgaVeXf9YpMES",
+=======
+    default="I2U9siKGNYVblgI0bVolMcGsGNkRypttPTISjyOAk9OOKuDjVTAvoHmwThbyDq6G",
+>>>>>>> with-stripe-connect
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#test-runner
 TEST_RUNNER = "django.test.runner.DiscoverRunner"
 
+<<<<<<< HEAD
+=======
+# CACHES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#caches
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "",
+    }
+}
+
+>>>>>>> with-stripe-connect
 # PASSWORDS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#password-hashers

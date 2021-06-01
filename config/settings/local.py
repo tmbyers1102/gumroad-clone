@@ -8,10 +8,17 @@ DEBUG = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env(
     "DJANGO_SECRET_KEY",
+<<<<<<< HEAD
     default="dYgoW4umHVOceefRzQuQu8WNwgyimYoLcmDOsfE02DAqKLOxkt4XwMvOCOSNvptf",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+=======
+    default="HxxP6QwphlHbxrJF2yq4FVMjNkjXxJNvAYkB1t9QV67tIYFkFblVR3mvm5htOx1g",
+)
+# https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "7312283e9be7.ngrok.io"]
+>>>>>>> with-stripe-connect
 
 # CACHES
 # ------------------------------------------------------------------------------

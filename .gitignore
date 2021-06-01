@@ -270,4 +270,11 @@ djgumroad/media/
 
 .pytest_cache/
 
+<<<<<<< HEAD
 
+=======
+.env
+.vscode
+
+ngrok
+>>>>>>> with-stripe-connect

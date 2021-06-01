@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Tom Byers
+=======
+Matthew Freire
+>>>>>>> with-stripe-connect

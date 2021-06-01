@@ -10,8 +10,15 @@ Behold My Awesome Project!
      :target: https://github.com/ambv/black
      :alt: Black code style
 
+<<<<<<< HEAD
 :License: MIT
 
+=======
+
+:License: MIT
+
+
+>>>>>>> with-stripe-connect
 Settings
 --------
 
@@ -65,7 +72,21 @@ Moved to `Live reloading and SASS compilation`_.
 
 .. _`Live reloading and SASS compilation`: http://cookiecutter-django.readthedocs.io/en/latest/live-reloading-and-sass-compilation.html
 
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> with-stripe-connect
 Deployment
 ----------
 
 The following details how to deploy this application.
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> with-stripe-connect

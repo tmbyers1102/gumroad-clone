@@ -4,6 +4,10 @@ sphinx:
   configuration: docs/conf.py
 
 python:
+<<<<<<< HEAD
   version: 3.9
+=======
+  version: 3.8
+>>>>>>> with-stripe-connect
   install:
     - requirements: requirements/local.txt

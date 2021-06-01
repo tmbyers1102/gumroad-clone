@@ -27,8 +27,13 @@ django.setup()
 # -- Project information -----------------------------------------------------
 
 project = "djgumroad"
+<<<<<<< HEAD
 copyright = """2021, Tom Byers"""
 author = "Tom Byers"
+=======
+copyright = """2021, Matthew Freire"""
+author = "Matthew Freire"
+>>>>>>> with-stripe-connect
 
 
 # -- General configuration ---------------------------------------------------

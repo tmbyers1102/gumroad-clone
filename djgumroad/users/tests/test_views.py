@@ -1,12 +1,20 @@
 import pytest
+<<<<<<< HEAD
 from django.conf import settings
+=======
+>>>>>>> with-stripe-connect
 from django.contrib import messages
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.messages.middleware import MessageMiddleware
 from django.contrib.sessions.middleware import SessionMiddleware
+<<<<<<< HEAD
 from django.http import HttpRequest
 from django.test import RequestFactory
 from django.urls import reverse
+=======
+from django.http.response import Http404
+from django.test import RequestFactory
+>>>>>>> with-stripe-connect
 
 from djgumroad.users.forms import UserChangeForm
 from djgumroad.users.models import User
@@ -29,9 +37,12 @@ class TestUserUpdateView:
         https://github.com/pytest-dev/pytest-django/pull/258
     """
 
+<<<<<<< HEAD
     def dummy_get_response(self, request: HttpRequest):
         return None
 
+=======
+>>>>>>> with-stripe-connect
     def test_get_success_url(self, user: User, rf: RequestFactory):
         view = UserUpdateView()
         request = rf.get("/fake-url/")
@@ -55,8 +66,13 @@ class TestUserUpdateView:
         request = rf.get("/fake-url/")
 
         # Add the session/message middleware to the request
+<<<<<<< HEAD
         SessionMiddleware(self.dummy_get_response).process_request(request)
         MessageMiddleware(self.dummy_get_response).process_request(request)
+=======
+        SessionMiddleware().process_request(request)
+        MessageMiddleware().process_request(request)
+>>>>>>> with-stripe-connect
         request.user = user
 
         view.request = request
@@ -95,7 +111,20 @@ class TestUserDetailView:
         request.user = AnonymousUser()
 
         response = user_detail_view(request, username=user.username)
+<<<<<<< HEAD
         login_url = reverse(settings.LOGIN_URL)
 
         assert response.status_code == 302
         assert response.url == f"{login_url}?next=/fake-url/"
+=======
+
+        assert response.status_code == 302
+        assert response.url == "/accounts/login/?next=/fake-url/"
+
+    def test_case_sensitivity(self, rf: RequestFactory):
+        request = rf.get("/fake-url/")
+        request.user = UserFactory(username="UserName")
+
+        with pytest.raises(Http404):
+            user_detail_view(request, username="username")
+>>>>>>> with-stripe-connect
