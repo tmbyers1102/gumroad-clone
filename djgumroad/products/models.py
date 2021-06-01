@@ -10,7 +10,7 @@ class Product(models.Model):
     )
     name = models.CharField(max_length=100)
     description = models.TextField()
-    cover = models.ImageField(blank=True, null=True, upload_to="product_covers/", default="product_covers/product_default.jpg")
+    cover = models.ImageField(blank=True, null=True, upload_to="product_covers/")
     slug = models.SlugField()
     
     # content

@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import stripe
 from django.conf import settings
+>>>>>>> with-stripe-connect
+=======
 >>>>>>> with-stripe-connect
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -17,22 +20,12 @@ User = get_user_model()
 =======
 from django.views.generic import DetailView, RedirectView, UpdateView, TemplateView
 
-stripe.api_key = settings.STRIPE_SECRET_KEY
 User = get_user_model()
 
 
 class UserProfileView(LoginRequiredMixin, TemplateView):
     template_name = "profile.html"
 
-    def get_context_data(self, **kwargs):
-        account = stripe.Account.retrieve(self.request.user.stripe_account_id)
-        details_submitted = account["details_submitted"]
-        print(account)
-        context = super(UserProfileView, self).get_context_data(**kwargs)
-        context.update({
-            "details_submitted": details_submitted
-        })
-        return context
 
 
 >>>>>>> with-stripe-connect
@@ -76,6 +69,7 @@ class UserRedirectView(LoginRequiredMixin, RedirectView):
 
 user_redirect_view = UserRedirectView.as_view()
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 
@@ -93,4 +87,6 @@ class StripeAccountLinkView(LoginRequiredMixin, RedirectView):
             type='account_onboarding',
         )
         return account_links["url"]
+>>>>>>> with-stripe-connect
+=======
 >>>>>>> with-stripe-connect

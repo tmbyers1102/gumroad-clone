@@ -24,6 +24,7 @@ class UserAdmin(auth_admin.UserAdmin):
     fieldsets = (
         (None, {"fields": ("username", "password")}),
 <<<<<<< HEAD
+<<<<<<< HEAD
         (_("Personal info"), {"fields": ("name", "email")}),
 =======
         (_("Personal info"), {"fields": (
@@ -32,6 +33,9 @@ class UserAdmin(auth_admin.UserAdmin):
             "stripe_customer_id",
             "stripe_account_id"
             )}),
+>>>>>>> with-stripe-connect
+=======
+        (_("Personal info"), {"fields": ("name", "email", "stripe_customer_id")}),
 >>>>>>> with-stripe-connect
         (
             _("Permissions"),
@@ -48,8 +52,12 @@ class UserAdmin(auth_admin.UserAdmin):
         (_("Important dates"), {"fields": ("last_login", "date_joined")}),
     )
 <<<<<<< HEAD
+<<<<<<< HEAD
     list_display = ["username", "name", "is_superuser"]
 =======
     list_display = ["username", "name", "stripe_customer_id", "stripe_account_id", "is_superuser"]
+>>>>>>> with-stripe-connect
+=======
+    list_display = ["username", "name", "stripe_customer_id", "is_superuser"]
 >>>>>>> with-stripe-connect
     search_fields = ["name"]

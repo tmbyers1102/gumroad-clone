@@ -41,7 +41,6 @@ class ProductDetailView(generic.DetailView):
 class UserProductListView(LoginRequiredMixin, generic.ListView):
     # shows user's created products
     template_name = "products.html"
-    context_object_name = "users_products"
 
     def get_queryset(self):
         return Product.objects.filter(user=self.request.user)
@@ -126,12 +125,6 @@ class CreateCheckoutSessionView(generic.View):
                     'quantity': 1,
                 }
             ],
-            payment_intent_data={
-                'application_fee_amount': 100,
-                'transfer_data': {
-                    'destination': product.user.stripe_account_id,
-                },
-            },
             mode='payment',
             success_url=domain + reverse("success"),
             cancel_url=domain + reverse("discover"),
@@ -153,7 +146,6 @@ class SuccessView(generic.TemplateView):
 @csrf_exempt
 def stripe_webhook( request, *args, **kwargs):
     CHECKOUT_SESSION_COMPLETED = "checkout.session.completed"
-    ACCOUNT_UPDATED = "account.updated"
 
     payload = request.body
     sig_header = request.META["HTTP_STRIPE_SIGNATURE"]
@@ -214,10 +206,20 @@ def stripe_webhook( request, *args, **kwargs):
                     # PurchasedProduct.objects.create(product=)
                     pass
 
-    elif event["type"] == ACCOUNT_UPDATED:
-        print(event)
 
     return HttpResponse()
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

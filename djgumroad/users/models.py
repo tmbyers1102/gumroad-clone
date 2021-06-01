@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.contrib.auth.models import AbstractUser
 from django.db.models import CharField
 from django.urls import reverse
@@ -7,6 +8,8 @@ from django.utils.translation import gettext_lazy as _
 =======
 import stripe
 from django.conf import settings
+=======
+>>>>>>> with-stripe-connect
 from django.contrib.auth.models import AbstractUser
 from django.db.models import CharField
 from django.db import models
@@ -15,7 +18,10 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from djgumroad.products.models import Product, PurchasedProduct
 
+<<<<<<< HEAD
 stripe.api_key = settings.STRIPE_SECRET_KEY
+>>>>>>> with-stripe-connect
+=======
 >>>>>>> with-stripe-connect
 
 class User(AbstractUser):
@@ -26,9 +32,13 @@ class User(AbstractUser):
     first_name = None  # type: ignore
     last_name = None  # type: ignore
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     stripe_customer_id = models.CharField(max_length=100, blank=True, null=True)
     stripe_account_id = models.CharField(max_length=100)
+>>>>>>> with-stripe-connect
+=======
+    stripe_customer_id = models.CharField(max_length=100, blank=True, null=True)    
 >>>>>>> with-stripe-connect
 
     def get_absolute_url(self):
@@ -63,12 +73,6 @@ def post_save_user_reciever(sender, instance, created, **kwargs):
         print(purchased_products)
         for purchased_product in purchased_products:
             library.products.add(purchased_product.product)
-
-        account = stripe.Account.create(
-            type='express',
-        )
-        instance.stripe_account_id = account["id"]
-        instance.save()
 
 
 post_save.connect(post_save_user_reciever, sender=User)

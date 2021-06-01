@@ -40,8 +40,7 @@
                 </tr>
               </thead>
               <tbody class="bg-white divide-y divide-gray-200">
-                <h1>object list: {{ users_products.count }}</h1>
-                {% for product in users_products %}
+                {% for product in object_list %}
                   <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
                       <div class="text-sm text-gray-900 flex items-center">
