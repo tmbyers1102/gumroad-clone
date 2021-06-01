@@ -221,18 +221,6 @@ def stripe_webhook( request, *args, **kwargs):
 
 
 
-
-
-
-
-
-
-
-git 
-
-
-
-
 # @csrf_exempt
 # def stripe_webhook(request, *args, **kwargs):
 #     CHECKOUT_SESSION_COMPLETED = "checkout.session.completed"
